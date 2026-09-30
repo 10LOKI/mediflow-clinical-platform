@@ -1,0 +1,22 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
+<c:choose>
+    <c:when test="${empty patients}"><div class="empty-state"><h2>Aucun patient à afficher</h2><p class="muted">Les nouvelles arrivées apparaîtront ici.</p></div></c:when>
+    <c:otherwise>
+        <div class="table-scroll"><table>
+            <caption>Patients triés du plus ancien au plus récent · Heure de Casablanca</caption>
+            <thead><tr><th scope="col">Patient</th><th scope="col">N° sécurité sociale</th><th scope="col">Arrivée</th><th scope="col">Tension</th><th scope="col">Fréq. cardiaque</th><th scope="col">Température</th><th scope="col">Fréq. respiratoire</th><th scope="col">Statut</th></tr></thead>
+            <tbody><c:forEach var="patient" items="${patients}"><tr>
+                <td><strong><c:out value="${patient.nom}"/> <c:out value="${patient.prenom}"/></strong></td>
+                <td><c:out value="${patient.numeroSecuriteSociale}"/></td>
+                <td><c:out value="${fn:substring(patient.dateArrivee, 11, 16)}"/></td>
+                <td><c:out value="${patient.tensionArterielle}"/> <small>mmHg</small></td>
+                <td><c:out value="${patient.frequenceCardiaque}"/> <small>/min</small></td>
+                <td><c:out value="${patient.temperature}"/> <small>°C</small></td>
+                <td><c:out value="${patient.frequenceRespiratoire}"/> <small>/min</small></td>
+                <td><c:choose><c:when test="${empty patient.consultation}"><span class="badge waiting">En attente</span></c:when><c:otherwise><span class="badge done">Terminée</span></c:otherwise></c:choose></td>
+            </tr></c:forEach></tbody>
+        </table></div>
+    </c:otherwise>
+</c:choose>

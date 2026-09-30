@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copier vers CATALINA_BASE/conf/Catalina/localhost/mediflow.xml.
+     Installer le driver PostgreSQL JDBC dans CATALINA_BASE/lib. -->
+<Context>
+    <CookieProcessor sameSiteCookies="lax"/>
+    <Resource name="jdbc/MediflowDB" auth="Container" type="javax.sql.DataSource"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5432/mediflow"
+              username="mediflow_app" password="REMPLACER_LOCALEMENT"
+              initialSize="2" maxActive="10" maxIdle="5" maxWait="10000"
+              defaultAutoCommit="true" testOnBorrow="true" validationQuery="SELECT 1"/>
+</Context>

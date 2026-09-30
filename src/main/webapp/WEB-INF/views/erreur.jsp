@@ -1,0 +1,3 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Requête impossible · MediFlow</title><link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css"></head>
+<body class="login-page"><main class="login-card"><div class="brand">+ MediFlow</div><h1>Requête impossible</h1><p>La page est indisponible, l'accès est refusé ou votre formulaire a expiré. Revenez à votre espace puis réessayez.</p><a class="button" href="${pageContext.request.contextPath}/login">Revenir à mon espace</a></main></body></html>

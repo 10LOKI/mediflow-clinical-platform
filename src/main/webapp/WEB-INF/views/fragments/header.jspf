@@ -1,0 +1,11 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<header class="topbar">
+    <a class="brand" href="${pageContext.request.contextPath}/login"><span class="brand-icon">+</span> MediFlow</a>
+    <div class="account"><span><c:out value="${sessionScope.utilisateur.nom}"/> · <c:out value="${sessionScope.utilisateur.role}"/></span>
+        <form method="post" action="${pageContext.request.contextPath}/logout">
+            <input type="hidden" name="_csrf" value="${sessionScope._csrf}">
+            <button class="secondary" type="submit">Déconnexion</button>
+        </form>
+    </div>
+</header>
