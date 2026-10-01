@@ -1,5 +1,6 @@
 package com.mediflow.model;
 
-public enum Role {
-    INFIRMIER, GENERALISTE
+public enum Role 
+{
+    INFIRMIER, GENERALISTE 
 }
